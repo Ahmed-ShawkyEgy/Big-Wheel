@@ -1,3 +1,5 @@
+import java.io.PrintWriter;
+
 
 public class Player extends Thread{
 
@@ -5,26 +7,28 @@ public class Player extends Thread{
 	long waitingTime;
 	boolean rideComplete , onBoard;
 	Operator operator;
+	PrintWriter out;
 	
-	public Player(int id,long waitingTime,Operator operator) 
+	public Player(int id,long waitingTime,Operator operator,PrintWriter out) 
 	{
 		this.id = id;
 		this.waitingTime = waitingTime;
 		this.operator = operator;
 		rideComplete = false;
 		onBoard = false;
+		this.out = out;
 	}
 	
 	
 	public void run() 
 	{
 		try {
-			System.out.println("Player :"+id+" sleeps for "+waitingTime + " milliseconds");
+			//out.println("Player :"+id+" sleeps for "+waitingTime + " milliseconds");
 			Thread.sleep(waitingTime);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Player :"+id+" wakes up");
+		
 		// Call Operator to join wheel
 		operator.load_player(this);
 		try {
@@ -35,6 +39,5 @@ public class Player extends Thread{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.err.println(id+" woke up");
 	}
 }

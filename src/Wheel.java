@@ -1,56 +1,57 @@
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
 public class Wheel extends Thread{
 	final int capacity = 5;
 	int maxWaitTime , onBoard;
+	boolean finished;
 	ArrayList<Player> players;
 	Operator operator;
+	PrintWriter out;
 	
-	public Wheel(int maxWaitTime,Operator operator) {
+	public Wheel(int maxWaitTime,Operator operator,PrintWriter out) {
 		this.maxWaitTime = maxWaitTime;
 		this.operator = operator;
 		onBoard = 0;
 		players = new ArrayList<Player>();
-		
+		this.out = out;
 	}
 
 
 	public void run() {
-		while(true)
+		while(!finished)
 		{
 			try {
-				System.out.println("Wheel Sleep");
+				out.println("Wheel Start Sleep");
 				Thread.sleep(maxWaitTime);
 				
 			} catch (InterruptedException e) {
-//				e.printStackTrace();
-				System.err.println("Exception");
+
+				
 			}
-			System.out.println("Wheel Wakes up");
 			run_ride();
 			end_ride();
 			
 		}
+		
+		out.flush();
 	
 	}
 	
 	synchronized void load_players(Player player)
 	{
-		System.out.println("load wheel method is called by :"+player.id);
+		
 		players.add(player);
 		player.onBoard = true;
 		onBoard++;
-//		try {
-//			player.wait();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		out.println("player "+player.id+" on board, capacity: "+this.onBoard);
 	}
 	
 	void run_ride(){
-		System.out.println("Wheel run_ride()");
+		if(this.players.size()==5)
+		out.println("Wheel is full, Lets go for a ride");
+		out.println("Thread in this ride are:");
 		
 	}
 	
@@ -61,6 +62,7 @@ public class Wheel extends Thread{
 			p.onBoard = false;
 			try{
 				synchronized (p) {
+					out.print(p.id+", ");
 					p.notify();					
 				}
 			}catch(Exception e)
@@ -68,8 +70,10 @@ public class Wheel extends Thread{
 				e.printStackTrace();
 			}
 		}
+		out.println();
 		players = new ArrayList<Player>();
 		onBoard = 0;
+		out.println("Wheel end");
 	}
 	
 }
