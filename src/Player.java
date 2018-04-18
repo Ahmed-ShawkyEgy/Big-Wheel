@@ -25,19 +25,20 @@ public class Player extends Thread{
 		try {
 			//out.println("Player :"+id+" sleeps for "+waitingTime + " milliseconds");
 			Thread.sleep(waitingTime);
+			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+		out.println("Player wakes up:"+id);
 		// Call Operator to join wheel
 		operator.load_player(this);
 		try {
 			synchronized (this) {
-				this.wait();
-				
+				this.wait();	
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	
 	}
 }

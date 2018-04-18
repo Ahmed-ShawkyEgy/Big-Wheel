@@ -21,7 +21,6 @@ public class Operator extends Thread{
 	{
 		
 		while(wheel.onBoard==5);
-		out.println("Player wakes up:"+(player.id));
 		out.println("passing player to operator:"+(player.id));
 		wheel.load_players(player);
 		if(wheel.onBoard==5)
@@ -58,12 +57,7 @@ public class Operator extends Thread{
 			players[i].start();
 		}
 	
-		for (int i = 0; i < players.length; i++) {
-//			System.err.println("waiting for "+players[i].id+" to join");
-//			players[i].join();
-//			System.err.println("Player "+players[i].id+" joined");
-		}
-		
+
 		
 	
 	}catch(Exception e)

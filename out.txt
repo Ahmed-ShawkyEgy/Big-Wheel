@@ -1,0 +1,90 @@
+Wheel Start Sleep
+Player wakes up:7
+Player wakes up:2
+Player wakes up:8
+passing player to operator:7
+player 7 on board, capacity: 1
+passing player to operator:8
+player 8 on board, capacity: 2
+passing player to operator:2
+player 2 on board, capacity: 3
+Player wakes up:13
+passing player to operator:13
+player 13 on board, capacity: 4
+Player wakes up:9
+passing player to operator:9
+player 9 on board, capacity: 5
+Wheel is full, Lets go for a ride
+Thread in this ride are:
+7, 8, 2, 13, 9, 
+Wheel end
+Wheel Start Sleep
+Player :7wokeup
+Player :9wokeup
+Player :2wokeup
+Player :8wokeup
+Player :13wokeup
+Player wakes up:15
+passing player to operator:15
+player 15 on board, capacity: 1
+Player wakes up:5
+passing player to operator:5
+player 5 on board, capacity: 2
+Player wakes up:10
+passing player to operator:10
+player 10 on board, capacity: 3
+Player wakes up:4
+passing player to operator:4
+player 4 on board, capacity: 4
+Player wakes up:6
+passing player to operator:6
+player 6 on board, capacity: 5
+Wheel is full, Lets go for a ride
+Thread in this ride are:
+15, 5, 10, 4, 6, 
+Player :10wokeup
+Player :15wokeup
+Player :4wokeup
+Player :6wokeup
+Player :5wokeup
+Wheel end
+Wheel Start Sleep
+Player wakes up:12
+passing player to operator:12
+player 12 on board, capacity: 1
+Player wakes up:1
+passing player to operator:1
+player 1 on board, capacity: 2
+Player wakes up:3
+passing player to operator:3
+player 3 on board, capacity: 3
+Player wakes up:16
+passing player to operator:16
+player 16 on board, capacity: 4
+Player wakes up:14
+passing player to operator:14
+player 14 on board, capacity: 5
+Wheel is full, Lets go for a ride
+Thread in this ride are:
+12, 1, 3, 16, 14, 
+Wheel end
+Player :12wokeup
+Player :16wokeup
+Player :14wokeup
+Player :1wokeup
+Wheel Start Sleep
+Player :3wokeup
+Player wakes up:11
+passing player to operator:11
+player 11 on board, capacity: 1
+Thread in this ride are:
+11, 
+Wheel end
+Wheel Start Sleep
+Player :11wokeup
+Player wakes up:17
+passing player to operator:17
+player 17 on board, capacity: 1
+Thread in this ride are:
+17, 
+Wheel end
